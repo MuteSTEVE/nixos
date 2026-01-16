@@ -13,5 +13,5 @@
 		wantedBy = [ "default.target" ];
 		serviceConfig.ExecStart = "mpris-proxy";
 	};
-	services.mpris-proxxy.enable = true;
+	#services.mpris-proxy.enable = true;
 }

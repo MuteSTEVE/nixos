@@ -5,6 +5,9 @@
 		./audio.nix
 	 	./hardware-configuration.nix
 		./host-user.nix
+		../modules/bluetooth.nix
+		../modules/bluetooth.nix
+		../modules/fcitx5.nix
 	];
 
 	boot.loader = {

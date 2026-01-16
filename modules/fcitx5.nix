@@ -7,9 +7,10 @@
 		fcitx5 = {
 			waylandFrontend = true;
 			addons = with pkgs; [
+				fcitx5
 				fcitx5-mozc
-					fcitx5-configtool
-					noto-fonts-cjk
+				noto-fonts-cjk
+				qt6Packages.fcitx5-configtool
 			];
 
 			settings.inputMethod = {
@@ -23,11 +24,5 @@
 				"Groups/0/Items/1".Name = "mozc";
 			};
 		};
-	};
-
-	home.sessionVariables = {
-		GTK_IM_MODULE = "fcitx5";
-		QT_IM_MODULE  = "fcitx5";
-		XMODIFIERS    = "@im=fcitx5";
 	};
 }

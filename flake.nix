@@ -18,7 +18,7 @@
 					home-manager = {
 						useGlobalPkgs = true;
 						useUserPackages = true;
-						users.mutesteve = import ./home-manager/home.nix;
+						users.mutesteve = import ./home.nix;
 						backupFileExtension = "backup";
 					};
 				}

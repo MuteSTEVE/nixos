@@ -2,8 +2,6 @@
 
 {
 	imports = [
-		./modules/bluetooth.nix
-		./modules/fcitx5.nix
 		./config/git/git-config.nix
 		./config/hyprland/hyprland.nix
 	];
