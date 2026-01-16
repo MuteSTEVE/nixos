@@ -1,6 +1,13 @@
 { config, pkgs, ... }:
 
 {
+	imports = [
+		./modules/bluetooth.nix
+		./modules/fcitx5.nix
+		./config/git/git-config.nix
+		./config/hyprland/hyprland.nix
+	];
+
 	home.username = "mutesteve";
 	home.homeDirectory = "/home/mutesteve";
 	home.stateVersion = "25.11";
@@ -11,14 +18,11 @@
 		bluez
 		btop
 		fastfetch
-		git
-		hyprpaper
-		kitty
-		neovim
-		vim
-		waybar
-		wget
+		impala
+		lazygit
 	];
+
+	programs.firefox.enable = true;
 
 	programs.bash = {
 		enable = true;
