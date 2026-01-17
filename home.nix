@@ -8,16 +8,8 @@
 	home.packages = with pkgs; [
 		anki
 		bluetui
-		bluez
 		btop
 		fastfetch
-		git
-		hyprpaper
-		kitty
-		neovim
-		vim
-		waybar
-		wget
 	];
 
 	programs.bash = {

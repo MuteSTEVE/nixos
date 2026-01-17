@@ -3,8 +3,16 @@
 {
 	imports = [ ./hardware-configuration.nix ];
 
-	boot.loader.systemd-boot.enable = true;
-	boot.loader.efi.canTouchEfiVariables = true;
+	boot.loader = {
+		efi = {
+			canTouchEfiVariables = true;
+		};
+		grub = {
+			efiSupport = true;
+			efiInstallAsRemovable = false;
+			device = "nodev";
+		};
+	};
 
 	networking.hostName = "hendarto";
 	networking.networkmanager.enable = true;
@@ -21,22 +29,35 @@
 		];
 	};
 
-	# services.pulseaudio.enable = true;
 	services.pipewire = {
 		enable = true;
 		pulse.enable = true;
 	};
 	hardware.bluetooth.enable = true;
+	systemd.user.services.mpris-proxy = {
+		description = "Mpris proxy";
+		after = [ "network.target" "sound.target" ];
+		wantedBy = [ "default.target" ];
+		serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
+	};
+
 
 	users.users.mutesteve = {
 		isNormalUser = true;
-		extraGroups = [ "wheel" "netdev" ];
+		extraGroups = [ "wheel" "networkmanager" ];
 	};
-
-	environment.systemPackages = with pkgs; [];
 
 	programs.firefox.enable = true;
 	programs.hyprland.enable = true;
+
+	environment.systemPackages = with pkgs; [
+		bluez
+		git
+		kitty
+		hyprpaper
+		neovim
+		wget
+	];
 
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 	system.stateVersion = "25.11";
