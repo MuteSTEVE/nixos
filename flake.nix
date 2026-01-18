@@ -23,16 +23,16 @@
 
 	{
 		nixosConfigurations = {
-			## TODO: Add more configuration for vm, desktop and laptop
-			default = nixpkgs.lib.nixosSystem {
+			## TODO: Add more profile for desktop and virtual-machine
+			laptop = nixpkgs.lib.nixosSystem {
 				specialArgs = { inherit hostvars username hostname stateVersion system timezone; };
 				modules = [
-					./hosts/default/configuration.nix
+					./profile/laptop/system/configuration.nix
 					home-manager.nixosModules.home-manager {
 						home-manager = {
 							useGlobalPkgs = true;
 							useUserPackages = true;
-							users.${username} = import ./home/default/home.nix;
+							users.${username} = import ./profile/laptop/home/home.nix;
 							extraSpecialArgs = { inherit hostvars username hostname stateVersion system; };
 							backupFileExtension = "backup";
 						};

@@ -2,9 +2,9 @@
 
 {
 	imports = [
-		./audio.nix
-		./hardware-configuration.nix
-		./host-user.nix
+		./modules/audio.nix
+		./modules/hardware-configuration.nix
+		./modules/host-user.nix
 	];
 
 	boot.loader = {
