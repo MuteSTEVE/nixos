@@ -1,7 +1,10 @@
 { config, lib, pkgs, hostvars, ... }:
 
 {
-	imports = [ ./hardware-configuration.nix ];
+	imports = [
+		./hardware-configuration.nix
+		./audio.nix
+	];
 
 	boot.loader = {
 		efi = {
@@ -27,11 +30,6 @@
 			fcitx5-mozc
 			qt6Packages.fcitx5-configtool
 		];
-	};
-
-	services.pipewire = {
-		enable = true;
-		pulse.enable = true;
 	};
 
 	hardware.bluetooth.enable = true;
