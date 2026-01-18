@@ -37,7 +37,6 @@
 							backupFileExtension = "backup";
 						};
 					}
-
 				];
 			};
 		};

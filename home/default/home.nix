@@ -21,4 +21,8 @@
 			btw = "echo I use Nixos btw";
 		};
 	};
+
+	imports = [
+		./hyprland/hyprland.nix
+	];
 }
