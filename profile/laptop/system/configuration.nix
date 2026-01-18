@@ -3,6 +3,7 @@
 {
 	imports = [
 		./modules/audio.nix
+		./modules/autogarbage-collection.nix
 		./modules/hardware-configuration.nix
 		./modules/host-user.nix
 	];
