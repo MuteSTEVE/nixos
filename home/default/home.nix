@@ -1,9 +1,9 @@
-{ config, pkgs, username, hostname, stateVersion, ... }:
+{ config, pkgs, hostvars, ... }:
 
 {
-	home.username = username;
-	home.homeDirectory = "/home/${username}";
-	home.stateVersion = stateVersion;
+	home.username = hostvars.username;
+	home.homeDirectory = "/home/${hostvars.username}";
+	home.stateVersion = hostvars.stateVersion;
 
 	home.packages = with pkgs; [
 		anki

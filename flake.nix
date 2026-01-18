@@ -11,19 +11,21 @@
 	outputs = { self, nixpkgs, home-manager }:
 
 	let
-		username = "mutesteve";
-		hostname = "hendarto";
-		timezone = "Asia/Jakarta";
+		hostvars = import ./config/host-user-info.nix;
 
-		stateVersion = "25.11";
-		system = "x86_64-linux";
+		username = hostvars.username;
+		hostname = hostvars.hostname;
+		timezone = hostvars.timezone;
+
+		stateVersion = hostvars.stateVersion;
+		system = hostvars.system;
 	in
 
 	{
 		nixosConfigurations = {
 			## TODO: Add more configuration for vm, desktop and laptop
 			default = nixpkgs.lib.nixosSystem {
-				specialArgs = { inherit username hostname stateVersion system timezone; };
+				specialArgs = { inherit hostvars username hostname stateVersion system timezone; };
 				modules = [
 					./hosts/default/configuration.nix
 					home-manager.nixosModules.home-manager {
@@ -31,7 +33,7 @@
 							useGlobalPkgs = true;
 							useUserPackages = true;
 							users.${username} = import ./home/default/home.nix;
-							extraSpecialArgs = { inherit username hostname stateVersion system; };
+							extraSpecialArgs = { inherit hostvars username hostname stateVersion system; };
 							backupFileExtension = "backup";
 						};
 					}

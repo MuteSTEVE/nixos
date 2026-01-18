@@ -1,4 +1,4 @@
-{ config, lib, pkgs, username, hostname, stateVersion, timezone, ... }:
+{ config, lib, pkgs, hostvars, ... }:
 
 {
 	imports = [ ./hardware-configuration.nix ];
@@ -14,10 +14,10 @@
 		};
 	};
 
-	networking.hostName = hostname;
+	networking.hostName = hostvars.hostname;
 	networking.networkmanager.enable = true;
 
-	time.timeZone = timezone;
+	time.timeZone = hostvars.timezone;
 
 	i18n.inputMethod = {
 		enable = true;
@@ -42,7 +42,7 @@
 	};
 
 
-	users.users.${username} = {
+	users.users.${hostvars.username} = {
 		isNormalUser = true;
 		extraGroups = [ "wheel" "networkmanager" ];
 	};
@@ -60,5 +60,5 @@
 	];
 
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
-	system.stateVersion = stateVersion;
+	system.stateVersion = hostvars.stateVersion;
 }
