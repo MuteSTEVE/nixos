@@ -1,11 +1,7 @@
 { config, pkgs, ... }:
 
 {
-	programs.kitty.enable = true;
-	wayland.windowManager.hyprland = {
-		enable = true;
-	};
-
+	## Fix mouse-cursor to load properly
 	home.pointerCursor = {
 		gtk.enable = true;
 		package = pkgs.bibata-cursors;
