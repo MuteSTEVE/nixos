@@ -6,6 +6,7 @@
 		./modules/autogarbage-collection.nix
 		./modules/hardware-configuration.nix
 		./modules/host-user.nix
+		./modules/input-method.nix
 	];
 
 	boot.loader = {
@@ -18,18 +19,6 @@
 	};
 
 	networking.networkmanager.enable = true;
-
-	i18n.inputMethod = {
-		enable = true;
-		type = "fcitx5";
-		fcitx5.addons = with pkgs; [
-			fcitx5
-			fcitx5-mozc
-			qt6Packages.fcitx5-configtool
-		];
-	};
-
-	hardware.bluetooth.enable = true;
 
 	programs.firefox.enable = true;
 	programs.hyprland.enable = true;
