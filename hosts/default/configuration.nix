@@ -2,14 +2,13 @@
 
 {
 	imports = [
-		./hardware-configuration.nix
 		./audio.nix
+		./hardware-configuration.nix
+		./host-user.nix
 	];
 
 	boot.loader = {
-		efi = {
-			canTouchEfiVariables = true;
-		};
+		efi = { canTouchEfiVariables = true; };
 		grub = {
 			efiSupport = true;
 			efiInstallAsRemovable = false;
@@ -17,10 +16,7 @@
 		};
 	};
 
-	networking.hostName = hostvars.hostname;
 	networking.networkmanager.enable = true;
-
-	time.timeZone = hostvars.timezone;
 
 	i18n.inputMethod = {
 		enable = true;
@@ -34,18 +30,6 @@
 
 	hardware.bluetooth.enable = true;
 
-	systemd.user.services.mpris-proxy = {
-		description = "Mpris proxy";
-		after = [ "network.target" "sound.target" ];
-		wantedBy = [ "default.target" ];
-		serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
-	};
-
-	users.users.${hostvars.username} = {
-		isNormalUser = true;
-		extraGroups = [ "wheel" "networkmanager" ];
-	};
-
 	programs.firefox.enable = true;
 	programs.hyprland.enable = true;
 
@@ -58,5 +42,4 @@
 	];
 
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
-	system.stateVersion = hostvars.stateVersion;
 }
