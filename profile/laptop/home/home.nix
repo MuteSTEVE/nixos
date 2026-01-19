@@ -1,19 +1,20 @@
 { config, pkgs, hostvars, ... }:
 
 {
-	home.username = hostvars.username;
-	home.homeDirectory = "/home/${hostvars.username}";
-	home.stateVersion = hostvars.stateVersion;
-
-	home.packages = with pkgs; [
-		anki
-		bluetui
-		btop
-		fastfetch
-		impala
-		lazygit
-		tree
-	];
+	home = {
+		username = hostvars.username;
+		homeDirectory = "/home/${hostvars.username}";
+		stateVersion = hostvars.stateVersion;
+		packages = with pkgs; [
+			anki
+			bluetui
+			btop
+			fastfetch
+			impala
+			lazygit
+			tree
+		];
+	};
 
 	programs.bash = {
 		enable = true;
@@ -23,6 +24,7 @@
 	};
 
 	imports = [
-		./hyprland/hyprland.nix
+		./modules/hyprland/hyprland.nix
+		./modules/fonts.nix
 	];
 }
