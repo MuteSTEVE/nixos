@@ -7,7 +7,6 @@
 		./modules/hardware-configuration.nix
 		./modules/bootloader.nix
 		./modules/host-user.nix
-		./modules/input-method.nix
 		./modules/packages.nix
 	];
 

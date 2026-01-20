@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
 	i18n.inputMethod = {
@@ -9,7 +9,6 @@
 			addons = with pkgs; [
 				fcitx5
 				fcitx5-mozc
-				noto-fonts-cjk-serif
 				qt6Packages.fcitx5-configtool
 			];
 
