@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+PROFILE="laptop" ## laptop | desktop | virtual-machine
+HARDWARE_CONFIGURATION="./profile/${PROFILE}/system/modules/hardware-configuration.nix"
+
+mkdir -p "$(dirname "$HARDWARE_CONFIGURATION")"
+
+if [[ ! -f "$HARDWARE_CONFIGURATION" ]]; then
+	cp /etc/nixos/hardware-configuration.nix "$HARDWARE_CONFIGURATION"
+fi
+
+UPGRADE=false
+
+for flag in "$@"; do
+	case "$flag" in
+		--upgrade|-u)
+			UPGRADE=true
+		;;
+		-*)
+			echo "Unknown option: $flag" >&2
+			exit 1
+		;;
+	esac
+done
+
+if ! $UPGRADE; then
+	sudo nixos-rebuild switch --flake ".#${PROFILE}"
+fi
+
+if [ -d .git ]; then
+	rm -fr "$HARDWARE_CONFIGURATION"
+fi
