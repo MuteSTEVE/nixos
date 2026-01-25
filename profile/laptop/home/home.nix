@@ -5,15 +5,6 @@
 		username = hostvars.username;
 		homeDirectory = "/home/${hostvars.username}";
 		stateVersion = hostvars.stateVersion;
-		packages = with pkgs; [
-			anki
-			bluetui
-			btop
-			fastfetch
-			impala
-			lazygit
-			tree
-		];
 	};
 
 	programs.bash = {
@@ -26,5 +17,6 @@
 	imports = [
 		./modules/hyprland/hyprland.nix
 		./modules/fonts.nix
+		./modules/home-packages.nix
 	];
 }
