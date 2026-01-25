@@ -8,6 +8,7 @@
 		fastfetch
 		impala
 		lazygit
+		neovim
 		tree
 	];
 }
