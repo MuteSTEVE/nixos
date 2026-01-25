@@ -4,10 +4,11 @@
 	imports = [
 		./modules/audio.nix
 		./modules/autogarbage-collection.nix
-		./modules/hardware-configuration.nix
+		./modules/bluetooth.nix
 		./modules/bootloader.nix
+		./modules/hardware-configuration.nix
 		./modules/host-user.nix
-		./modules/packages.nix
+		./modules/system-packages.nix
 	];
 
 	networking.networkmanager.enable = true;
