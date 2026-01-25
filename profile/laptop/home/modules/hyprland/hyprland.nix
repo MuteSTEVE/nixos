@@ -2,16 +2,10 @@
 
 {
 	imports = [
-		./keybinds.nix
+		./src/fix-mouse-cursor.nix
+		./src/hyprland-packages.nix
+		./src/keybinds.nix
 	];
-
-	## Fix mouse-cursor to load properly
-	home.pointerCursor = {
-		gtk.enable = true;
-		package = pkgs.bibata-cursors;
-		name = "Bibata-Modern-Ice";
-		size = 16;
-	};
 
 	wayland.windowManager.hyprland = {
 		enable = true;
