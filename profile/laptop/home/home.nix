@@ -18,5 +18,6 @@
 		./modules/hyprland/hyprland.nix
 		./modules/fonts.nix
 		./modules/home-packages.nix
+		./modules/gitconfig.nix
 	];
 }
