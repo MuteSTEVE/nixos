@@ -23,7 +23,7 @@
 
 	{
 		nixosConfigurations = {
-			## TODO: Add more profile for desktop and virtual-machine
+			## TODO: Add more profile for desktop & virtual-machine (server if needed)
 			laptop = nixpkgs.lib.nixosSystem {
 				specialArgs = { inherit hostvars username hostname stateVersion system timezone; };
 				modules = [

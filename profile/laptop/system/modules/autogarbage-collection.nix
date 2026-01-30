@@ -1,12 +1,19 @@
 { config, lib, ... }:
+
 {
 	## Automatic updating
-	system.autoUpgrade.enable = true;
-	system.autoUpgrade.dates = "weekly";
+	system.autoUpgrade = {
+		enable = true;
+		dates = "weekly";
+	};
 
 	## Automatic cleanup
-	nix.gc.automatic = true;
-	nix.gc.dates = "daily";
-	nix.gc.options = "--delete-older-than 14d";
-	nix.settings.auto-optimise-store = true;
+	nix = {
+		gc = {
+			automatic = true;
+			dates = "daily";
+			options = "--delete-older-than 14d";
+		};
+		settings.auto-optimise-store = true;
+	};
 }
