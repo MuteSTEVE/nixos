@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+	programs.mpv.enable = true;
 	home.packages = with pkgs; [
 		anki
 		bluetui
@@ -8,7 +9,9 @@
 		fastfetch
 		impala
 		lazygit
+		localsend
 		neovim
 		tree
+		yazi
 	];
 }

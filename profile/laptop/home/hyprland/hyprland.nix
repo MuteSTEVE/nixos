@@ -1,4 +1,4 @@
-{ config, pkgs, hostvars, ... }:
+{ config, pkgs, inputs, hostvars, ... }:
 
 {
 	imports = [
@@ -10,21 +10,18 @@
 	wayland.windowManager.hyprland = {
 		enable = true;
 		xwayland.enable = true;
+
 		settings = {
-			source = [
-				## Using pywal16 hyprland color template
-				"/home/${hostvars.username}/.cache/wal/colors-hyprland.conf"
-			];
+			## Using pywal16 hyprland color template
+			source = "/home/${hostvars.username}/.cache/wal/colors-hyprland.conf";
 
 			monitor= ",preferred,auto,1";
 
-			"exec-once" =  [ 
-				"hyprpaper"
-				"swaync"
-				"waybar"
-				"nm-applet"
-				"fcitx5"
-				"sh /home/${hostvars.username}/.local/bin/hyprpwp &"
+			"exec-once" =  [
+				"waybar &"
+				"fcitx5 &"
+				"mpris-proxy &"
+				#"sh /home/${hostvars.username}/.local/bin/hyprpwp &"
 			];
 
 			env = [ 
@@ -56,7 +53,7 @@
 				};
 
 				blur = {
-					enabled = false;
+					enabled = true;
 					size = 3;
 					passes = 1;
 					vibrancy = 0.1696;
