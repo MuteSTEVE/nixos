@@ -8,9 +8,9 @@
 		./modules/bootloader.nix
 		./modules/hardware-configuration.nix
 		./modules/host-user.nix
+		./modules/networking.nix
 		./modules/system-packages.nix
 	];
 
-	networking.networkmanager.enable = true;
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
