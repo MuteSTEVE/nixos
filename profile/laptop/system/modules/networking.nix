@@ -10,7 +10,6 @@ in
 		networkmanager = {
 			enable = true;
 			wifi = {
-				backend = "iwd";
 				powersave = true;	## Laptop power saving
 			};
 		};
