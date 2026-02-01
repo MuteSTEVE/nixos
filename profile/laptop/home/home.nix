@@ -3,8 +3,7 @@
 {
 	imports = [
 		./modules/init.nix
-		./hyprland/hyprland.nix
-		./kitty/kitty.nix
+		./programs/init.nix
 	];
 
 	home = {
