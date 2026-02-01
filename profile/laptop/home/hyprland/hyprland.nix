@@ -13,7 +13,7 @@
 
 		settings = {
 			## Using pywal16 hyprland color template
-			source = "/home/${hostvars.username}/.cache/wal/colors-hyprland.conf";
+			#source = "/home/${hostvars.username}/.cache/wal/colors-hyprland.conf";
 
 			monitor= ",preferred,auto,1";
 

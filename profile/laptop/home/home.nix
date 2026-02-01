@@ -2,10 +2,9 @@
 
 {
 	imports = [
+		./modules/init.nix
 		./hyprland/hyprland.nix
-		./modules/fonts.nix
-		./modules/home-packages.nix
-		./modules/gitconfig.nix
+		./kitty/kitty.nix
 	];
 
 	home = {
