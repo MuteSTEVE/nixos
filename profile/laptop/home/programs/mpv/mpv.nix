@@ -3,7 +3,7 @@
 {
 	imports = [
 		./mpv-conf.nix
-		./mpv-input-conf.nix
+		./mpv-input.nix
 	];
 
 	programs.mpv = {
