@@ -2,7 +2,6 @@
 
 {
 	home.file = {
-		# This will create ~/Documents/love-linux.txt
 		".config/mpv/mpv.conf".text = ''
 sub-visibility=yes
 sub-auto=fuzzy
