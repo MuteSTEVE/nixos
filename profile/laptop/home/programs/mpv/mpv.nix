@@ -1,14 +1,19 @@
 { config, pkgs, ... }:
 
 {
+	imports = [
+		./mpv-conf.nix
+		./mpv-input-conf.nix
+	];
+
 	programs.mpv = {
 		enable = true;
 		scripts = with pkgs.mpvScripts; [
-			uosc
 			mpvacious
 		];
 	};
 
+	## Obviously needed by mpvacious
 	home.packages = with pkgs; [
 		ffmpeg-full
 	];

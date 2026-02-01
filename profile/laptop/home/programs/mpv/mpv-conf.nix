@@ -1,0 +1,19 @@
+{ config, ... }:
+
+{
+	home.file = {
+		# This will create ~/Documents/love-linux.txt
+		".config/mpv/mpv.conf".text = ''
+sub-visibility=yes
+sub-auto=fuzzy
+alang: jpn, jp, en
+slang: jpn, jp, en
+audio-file-auto=fuzzy
+save-position-on-quit=yes
+autofit-larger=100%x100%
+geometry=50%:50%
+sub-font="SimSun"
+sub-font-size=50 '';
+	};
+
+}

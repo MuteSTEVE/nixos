@@ -121,7 +121,7 @@
 			};
 
 			windowrule = [
-				# Ignore maximize requests from apps. You'll probably like this.
+				## Ignore maximize requests from apps. You'll probably like this.
 				"suppress_event maximize, match:class .*"
 			];
 		};
