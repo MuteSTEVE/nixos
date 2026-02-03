@@ -11,7 +11,7 @@
 	outputs = { self, nixpkgs, home-manager }:
 
 	let
-		hostvars = import ./user-info.nix;
+		hostvars = import ./system-info.nix;
 
 		username = hostvars.username;
 		hostname = hostvars.hostname;
