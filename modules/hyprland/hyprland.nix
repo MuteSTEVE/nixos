@@ -2,10 +2,10 @@
 
 {
 	imports = [
-		./src/fix-mouse-cursor.nix
-		./src/hyprland-packages.nix
-		./src/keybinds.nix
+		./hyprland-packages.nix
+		./keybinds.nix
 	];
+	xdg.configFile."wal/templates/colors-hyprland.conf".source = ../pywal/colors-hyprland.conf;
 
 	wayland.windowManager.hyprland = {
 		enable = true;
@@ -33,7 +33,7 @@
 			general = {
 				gaps_in = 5;
 				gaps_out = 10;
-				border_size = 3;
+				border_size = 2;
 				resize_on_border = false;
 				layout = "dwindle";
 

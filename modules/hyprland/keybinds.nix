@@ -18,7 +18,7 @@
 			"$MODKEY SHIFT, n, exec, $WIFI"
 			"$MODKEY SHIFT, l, exec, $MENU"
 
-			"$MODKEY, q, killactive,"
+			"$MODKEY, c, killactive,"
 			"$MODKEY, ESCAPE, exit,"
 			"$MODKEY, f, togglefloating,"
 			"$MODKEY, p, pseudo, # dwindle"

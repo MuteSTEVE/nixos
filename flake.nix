@@ -11,7 +11,7 @@
 	outputs = { self, nixpkgs, home-manager }:
 
 	let
-		hostvars = import ./config/host-user-info.nix;
+		hostvars = import ./user-info.nix;
 
 		username = hostvars.username;
 		hostname = hostvars.hostname;
@@ -27,12 +27,12 @@
 			laptop = nixpkgs.lib.nixosSystem {
 				specialArgs = { inherit hostvars username hostname stateVersion system timezone; };
 				modules = [
-					./profile/laptop/system/configuration.nix
+					./hosts/laptop/configuration.nix
 					home-manager.nixosModules.home-manager {
 						home-manager = {
 							useGlobalPkgs = true;
 							useUserPackages = true;
-							users.${username} = import ./profile/laptop/home/home.nix;
+							users.${username} = import ./hosts/laptop/home.nix;
 							extraSpecialArgs = { inherit hostvars username hostname stateVersion system; };
 							backupFileExtension = "backup";
 						};

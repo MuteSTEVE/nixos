@@ -7,12 +7,13 @@
 			mpvacious
 		];
 
-		## Obviously needed by mpvacious
-		packages = with pkgs; [
-			ffmpeg-full
-		];
 	};
 
-	xdg.configFile."mpv/config".source = ./mpv-config;
+	## Obviously needed by mpvacious
+	home.packages = with pkgs; [
+		ffmpeg-full
+	];
+
+	xdg.configFile."mpv/mpv.conf".source = ./mpv-conf;
 	xdg.configFile."mpv/input.conf".source = ./mpv-input;
 }
