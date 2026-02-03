@@ -5,5 +5,6 @@
 	home.packages = with pkgs; [
 		swww
 		hyprpaper
+		pywal16
 	];
 }

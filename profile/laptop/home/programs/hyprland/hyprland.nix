@@ -13,7 +13,7 @@
 
 		settings = {
 			## Using pywal16 hyprland color template
-			source = "/home/${hostvars.username}/.cache/wal/colors-hyprland.conf";
+			#source = "/home/${hostvars.username}/.cache/wal/colors-hyprland.conf";
 
 			monitor= ",preferred,auto,1";
 
@@ -42,7 +42,7 @@
 			};
 
 			decoration = {
-				rounding = 10;
+				rounding = 5;
 				active_opacity = 1.0;
 				inactive_opacity = 1.0;
 				shadow = {
